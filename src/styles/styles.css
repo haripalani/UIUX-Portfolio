@@ -39,11 +39,16 @@
 }
 
 /* Base Styles */
-html {
+html, body {
   height: 100%;
-  scroll-behavior: smooth;
-}
-
+   scroll-behavior: auto; /* disable anchor-based */
+    -webkit-overflow-scrolling: touch;
+    backface-visibility: hidden;
+    perspective: 1px;
+    transform: translate3d(0,0,0); /* enable GPU acceleration */
+    
+  }
+  
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;

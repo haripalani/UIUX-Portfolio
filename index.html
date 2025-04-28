@@ -107,7 +107,21 @@
   <footer>
     <p>&copy; 2025 UI/UX Designer Portfolio. All rights reserved.</p>
   </footer>
-
+  <script src="https://unpkg.com/@studio-freight/lenis"></script>
+  <script>
+    const lenis = new Lenis({
+      smooth: true,
+      lerp: 0.08
+    })
+  
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+  
+    requestAnimationFrame(raf)
+  </script>
+  
   <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>

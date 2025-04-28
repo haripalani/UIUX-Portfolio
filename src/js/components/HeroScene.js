@@ -13,8 +13,6 @@ export class HeroScene {
     );
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
-    this.targetRotation = { x: 0, y: 0 }; // for smooth mouse control
-
     this.init();
     this.createObjects();
     this.setupAnimation();
@@ -23,15 +21,12 @@ export class HeroScene {
   }
 
   init() {
-    // Set up renderer
     this.renderer.setSize(this.container.offsetWidth, this.container.offsetHeight);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.container.appendChild(this.renderer.domElement);
 
-    // Position camera
     this.camera.position.z = 5;
 
-    // Add lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     this.scene.add(ambientLight);
 
@@ -41,7 +36,6 @@ export class HeroScene {
   }
 
   createObjects() {
-    // Create the main hero object
     this.geometry = new THREE.TorusKnotGeometry(1, 0.3, 100, 16);
     this.material = new THREE.MeshStandardMaterial({
       color: 0x6366f1,
@@ -51,22 +45,19 @@ export class HeroScene {
     });
 
     this.mesh = new THREE.Mesh(this.geometry, this.material);
-    this.mesh.position.x = 0.7; // Shift object slightly to the right
+    this.mesh.position.x = 0.7;
     this.scene.add(this.mesh);
 
-    // Create star particles
     const particlesGeometry = new THREE.BufferGeometry();
     const particlesCount = 1000;
-
     const posArray = new Float32Array(particlesCount * 3);
     for (let i = 0; i < particlesCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 20; // Wider spread
+      posArray[i] = (Math.random() - 0.5) * 20;
     }
-
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.01, // smaller for stars
+      size: 0.01,
       color: 0xffffff,
       transparent: true,
       opacity: 0.8,
@@ -76,7 +67,7 @@ export class HeroScene {
     this.particles = new THREE.Points(particlesGeometry, particlesMaterial);
     this.scene.add(this.particles);
 
-    // Twinkle animation
+    // Twinkle stars
     gsap.to(this.particles.material, {
       opacity: 0.5,
       duration: 1.5,
@@ -87,29 +78,20 @@ export class HeroScene {
   }
 
   setupAnimation() {
-    // Animate the mesh (auto-rotation)
+    // Auto-rotation only, NO mouse control
     gsap.to(this.mesh.rotation, {
       x: Math.PI * 2,
       y: Math.PI * 2,
-      duration: 20,
+      duration: 30, // a bit slower, smoother
       ease: "none",
       repeat: -1,
-    });
-
-    // Capture mouse movement
-    document.addEventListener('mousemove', (event) => {
-      this.targetRotation.x = (event.clientY / window.innerHeight - 0.5) * Math.PI;
-      this.targetRotation.y = (event.clientX / window.innerWidth - 0.5) * Math.PI;
     });
   }
 
   handleResize() {
     window.addEventListener('resize', () => {
-      // Update camera
       this.camera.aspect = this.container.offsetWidth / this.container.offsetHeight;
       this.camera.updateProjectionMatrix();
-
-      // Update renderer
       this.renderer.setSize(this.container.offsetWidth, this.container.offsetHeight);
       this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
@@ -119,13 +101,9 @@ export class HeroScene {
     const animate = () => {
       requestAnimationFrame(animate);
 
-      // Smoothly follow the mouse
-      this.mesh.rotation.x += (this.targetRotation.x - this.mesh.rotation.x) * 0.05;
-      this.mesh.rotation.y += (this.targetRotation.y - this.mesh.rotation.y) * 0.05;
+      // Remove mouse-following logic completely
 
-      // Rotate stars very slightly
-      this.particles.rotation.y += 0.0005;
-
+      this.particles.rotation.y += 0.0005; // slight star drift
       this.renderer.render(this.scene, this.camera);
     };
 
@@ -133,7 +111,6 @@ export class HeroScene {
   }
 
   dispose() {
-    // Clean up
     this.geometry.dispose();
     this.material.dispose();
     this.particles.geometry.dispose();
