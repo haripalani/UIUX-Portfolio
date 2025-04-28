@@ -80,14 +80,14 @@ a, button, input[type="submit"], input[type="button"], .cta-button,
 /* Reduce animation load */
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
   
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    scroll-behavior: smooth !important;
   }
 }
 /* Reset Styles */
