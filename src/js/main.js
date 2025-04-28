@@ -41,6 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const projectPreview = new ProjectPreview(element);
     });
   }
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+  scrollIndicator.addEventListener('click', () => {
+    const nextSection = document.querySelector('.main-content');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+}
+
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -82,3 +92,5 @@ document.addEventListener('DOMContentLoaded', function() {
     cursorContainer.style.top = (e.clientY + 5) + 'px';    // little downward shift
   });
 });
+
+
