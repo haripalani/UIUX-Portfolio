@@ -2,62 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hariharan's World</title>
+  <meta name="description" content="Hariharan - UI/UX Designer & Developer creating captivating digital experiences through design and code" />
+  <meta name="keywords" content="UI/UX Designer, Frontend Developer, Web Developer, Portfolio, Three.js, React" />
+  <meta name="author" content="Hariharan" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hariharan-portfolio.com/" />
+  <meta property="og:title" content="Hariharan - UI/UX Designer & Developer" />
+  <meta property="og:description" content="Creating captivating digital experiences through design and code" />
+  <meta property="og:image" content="/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://hariharan-portfolio.com/" />
+  <meta property="twitter:title" content="Hariharan - UI/UX Designer & Developer" />
+  <meta property="twitter:description" content="Creating captivating digital experiences through design and code" />
+  <meta property="twitter:image" content="/og-image.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <title>Hariharan - UI/UX Designer & Developer</title>
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+  </div>
+
   <header>
     <nav>
-      <div class="logo">Portfolio</div>
+      <div class="logo">Hariharan</div>
       <ul>
         <li><a href="#hero" class="active">Home</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5M17.6859 17.69L18.5 18.5M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </li>
       </ul>
     </nav>
   </header>
 
- 
-    <section id="hero">
-      <div class="hero-content">
-        <h1>UI/UX Designer & Developer</h1>
-        <p>Creating captivating digital experiences through design and code</p>
-        <a href="#projects" class="cta-button">View My Work</a>
-      </div>
-      <div id="hero-canvas"></div>
-      <div class="scroll-indicator">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-    </section>
-    <main class="main-content">
+  <section id="hero">
+    <div class="hero-content">
+      <h1>UI/UX Designer & Developer</h1>
+      <p>Creating captivating digital experiences through design and code</p>
+      <a href="#projects" class="cta-button">View My Work</a>
+    </div>
+    <div id="hero-canvas"></div>
+    <div class="scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <main class="main-content">
     <section id="projects">
       <h2>Featured Projects</h2>
       <div class="project-grid">
-        <div class="project">
+        <article class="project">
           <div class="project-image">
-            <img src="https://via.placeholder.com/400x300" alt="Project 1" />
+            <img src="/placeholder.svg?height=250&width=400&query=modern e-commerce website design" alt="E-commerce Redesign Project" />
           </div>
-          <h3 class="project-title">E-commerce Redesign</h3>
-          <p class="project-description">Complete UX overhaul of an online retail platform, increasing conversion rates by 24%.</p>
-        </div>
-        <div class="project">
+          <div class="project-content">
+            <h3 class="project-title">E-commerce Redesign</h3>
+            <p class="project-description">Complete UX overhaul of an online retail platform, increasing conversion rates by 24% through improved user flow and modern design principles.</p>
+            <div class="project-tags">
+              <span class="tag">UI/UX</span>
+              <span class="tag">React</span>
+              <span class="tag">Figma</span>
+            </div>
+          </div>
+        </article>
+        
+        <article class="project">
           <div class="project-image">
-            <img src="https://via.placeholder.com/400x300" alt="Project 2" />
+            <img src="/placeholder.svg?height=250&width=400&query=financial dashboard with charts and graphs" alt="Finance Dashboard Project" />
           </div>
-          <h3 class="project-title">Finance Dashboard</h3>
-          <p class="project-description">Interactive dashboard for financial data visualization, simplifying complex data for users.</p>
-        </div>
-        <div class="project">
+          <div class="project-content">
+            <h3 class="project-title">Finance Dashboard</h3>
+            <p class="project-description">Interactive dashboard for financial data visualization, simplifying complex data for users with intuitive charts and real-time updates.</p>
+            <div class="project-tags">
+              <span class="tag">Vue.js</span>
+              <span class="tag">D3.js</span>
+              <span class="tag">API</span>
+            </div>
+          </div>
+        </article>
+        
+        <article class="project">
           <div class="project-image">
-            <img src="https://via.placeholder.com/400x300" alt="Project 3" />
+            <img src="/placeholder.svg?height=250&width=400&query=mobile fitness app interface design" alt="Mobile App Design Project" />
           </div>
-          <h3 class="project-title">Mobile App Design</h3>
-          <p class="project-description">Intuitive fitness tracking app with gamification elements to boost user engagement.</p>
-        </div>
+          <div class="project-content">
+            <h3 class="project-title">Fitness Tracking App</h3>
+            <p class="project-description">Intuitive fitness tracking app with gamification elements to boost user engagement and help users achieve their health goals.</p>
+            <div class="project-tags">
+              <span class="tag">Mobile</span>
+              <span class="tag">React Native</span>
+              <span class="tag">UX Research</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -65,18 +122,20 @@
       <h2>About Me</h2>
       <div class="about-content">
         <div class="about-text">
-          <p>I'm a UI/UX designer with a passion for creating intuitive and engaging digital experiences. With a background in both design and development, I bring a unique perspective to every project.</p>
-          <p>My approach combines user-centered design principles with cutting-edge technologies to create solutions that are both beautiful and functional.</p>
+          <p>I'm a passionate UI/UX designer and developer with over 5 years of experience creating intuitive and engaging digital experiences. My unique background in both design and development allows me to bridge the gap between beautiful interfaces and functional code.</p>
+          <p>I believe in user-centered design principles and love solving complex problems through simple, elegant solutions. When I'm not designing or coding, you can find me exploring new technologies, contributing to open-source projects, or mentoring aspiring designers.</p>
         </div>
         <div class="skills">
-          <h3>Skills</h3>
+          <h3>Skills & Technologies</h3>
           <ul>
             <li>UI/UX Design</li>
-            <li>Front-end Development</li>
-            <li>Prototyping</li>
-            <li>User Research</li>
+            <li>Frontend Development</li>
+            <li>React & Vue.js</li>
             <li>Three.js & WebGL</li>
-            <li>Animation</li>
+            <li>Figma & Adobe Creative Suite</li>
+            <li>User Research & Testing</li>
+            <li>Prototyping & Wireframing</li>
+            <li>Animation & Motion Design</li>
           </ul>
         </div>
       </div>
@@ -87,41 +146,37 @@
       <div class="contact-content">
         <form id="contact-form">
           <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required aria-describedby="name-error">
+            <span id="name-error" class="error-message" role="alert"></span>
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required aria-describedby="email-error">
+            <span id="email-error" class="error-message" role="alert"></span>
           </div>
           <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject">
           </div>
-          <button type="submit" class="cta-button">Send Message</button>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+            <span id="message-error" class="error-message" role="alert"></span>
+          </div>
+          <button type="submit" class="cta-button">
+            <span class="button-text">Send Message</span>
+            <span class="button-loading" style="display: none;">Sending...</span>
+          </button>
         </form>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 UI/UX Designer Portfolio. All rights reserved.</p>
+    <p>&copy; 2025 Hariharan. All rights reserved. Built with ❤️ and modern web technologies.</p>
   </footer>
-  <script src="https://unpkg.com/@studio-freight/lenis"></script>
-  <script>
-    const lenis = new Lenis({
-      smooth: true,
-      lerp: 0.08
-    })
-  
-    function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-  
-    requestAnimationFrame(raf)
-  </script>
-  
+
   <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>
