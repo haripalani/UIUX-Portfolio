@@ -199,7 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkScroll = () => {
       if (window.scrollY > 100 && !hasScrolled) {
         hasScrolled = true
-        scrollIndicator.style.opacity = '0'
         scrollIndicator.style.transform = 'translateX(-50%) translateY(20px)'
         window.removeEventListener('scroll', checkScroll)
       }
@@ -310,6 +309,5 @@ setTimeout(preloadImages, 2000)
 
 // Add smooth page transitions
 window.addEventListener('beforeunload', () => {
-  document.body.style.opacity = '0'
   document.body.style.transform = 'translateY(20px)'
 })
